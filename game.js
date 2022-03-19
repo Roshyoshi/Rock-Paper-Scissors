@@ -25,8 +25,6 @@ function playerPlay() {
 function playRound(playerSelection, computerSelection) {
   let gameVar = playerSelection - computerSelection;
   switch (gameVar) {
-    case 0:
-      return "T";
     case 1:
       return true;
     case -1:
@@ -39,11 +37,6 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function printWinner(gameStatus, playerSelection, computerSelection) {
-  if (gameStatus === "T") {
-    console.log("Tie!");
-    return;
-  }
-
   const defineOption = (selection) => {
     switch (selection) {
       case 1:
@@ -66,6 +59,10 @@ let playerSelection, computerSelection, gameStatus;
 for (let i = 0; i < 5; i++) {
   playerSelection = playerPlay();
   computerSelection = computerPlay();
+  if (playerSelection === computerSelection){
+    console.log("Tie!");
+    continue;
+  } 
   gameStatus = playRound(playerSelection, computerSelection);
   printWinner(gameStatus, playerSelection, computerSelection);
 }
