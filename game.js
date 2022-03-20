@@ -56,7 +56,8 @@ function game(playerSelection) {
 }
 function playerPlay(e) {
   e.stopPropagation();
-  if (e.target.getAttribute("id") === null) return;
+  console.log(e.target.getAttribute("class"));
+  if (e.target.getAttribute("class") !== "butn") return;
   game(Number(e.target.getAttribute("id")));
   const currentPlayerPoints = Number(playerPoints.textContent);
   const currentComputerPoints = Number(computerPoints.textContent);
